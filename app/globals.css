@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Söhne Font Face Declarations */
+@font-face {
+  font-family: 'Söhne';
+  src: url('/fonts/soehne-buch.woff2') format('woff2'),
+       url('/fonts/soehne-buch.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Söhne';
+  src: url('/fonts/soehne-kraftig.woff2') format('woff2'),
+       url('/fonts/soehne-kraftig.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Söhne';
+  src: url('/fonts/soehne-halbfett.woff2') format('woff2'),
+       url('/fonts/soehne-halbfett.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --marian-indigo: #273685;
+  --grace: #7C2C45;
+  --cherubim: #F0D99E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-marian-indigo: var(--marian-indigo);
+  --color-grace: var(--grace);
+  --color-cherubim: var(--cherubim);
+  --font-sans: 'Söhne', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Söhne', system-ui, -apple-system, sans-serif;
+}

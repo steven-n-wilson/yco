@@ -11,6 +11,8 @@ export default function Hero() {
     '/images/nd_bishop.jpeg',
     '/images/nd_mf.jpeg',
     '/images/nd_people.jpeg',
+    // '/images/nd_frConnor.jpeg',
+    // '/images/nd_nat.jpeg',
   ];
 
   return (

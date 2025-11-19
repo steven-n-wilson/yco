@@ -16,21 +16,20 @@ const highlights = [
   {
     title: 'Community with purpose',
     description:
-      'We design spaces where friendships, prayer, and mission sharpen one another.',
+      'We bring spaces where friendships, prayer, and mission sharpen one another.',
   },
 ];
 
 const pillars = [
-  { label: 'City anchors', value: '6', detail: 'parishes & campuses with weekly formation' },
-  { label: 'Gatherings / year', value: '120+', detail: 'from prayer nights to networking events' },
+  { label: 'City anchors', value: '12', detail: 'parishes & campuses with weekly formation' },
+  { label: 'Gatherings / year', value: '100+', detail: 'from prayer nights to networking events' },
   { label: 'Participants', value: '300+', detail: 'young Catholics shaped for mission' },
 ];
 
 const values = [
-  { title: 'Earn trust daily', body: 'We show up consistently, communicate transparently, and let our actions speak.' },
-  { title: 'Debate, then decide', body: 'We challenge ideas with charity and move forward together once the call is made.' },
-  { title: 'Be kind, stay bold', body: 'We lead with warmth, yet we refuse to soften the Gospel or our expectations.' },
-  { title: 'Build for impact', body: 'We keep programs lean, measurable, and oriented toward conversion.' },
+  { title: 'Go Out', body: 'We create opportunities to encounter Jesus, proclaim the Gospel, and reach out to others with God\'s love and mercy.' },
+  { title: 'Go Deep', body: 'We journey in ongoing conversion, rooted in the Eucharist, Word of God, and personal relationship with Christ.' },
+  { title: 'Go Together', body: 'We unite in mission, faithful to the Gospel and Tradition, supporting one another as servant leaders.' },
 ];
 
 export default function About() {
@@ -81,7 +80,7 @@ export default function About() {
             <p className="text-sm uppercase tracking-[0.3em] text-background/50">What guides our day-to-day</p>
             <h2 className="text-3xl font-bold">Simple rhythms, lasting impact</h2>
             <p className="text-background/60 md:w-2/3">
-              We review these pillars weekly, and every retreat, small group, and leadership sprint maps back to them.
+              These principles shape how we gather, form leaders, and build community across Ottawa.
             </p>
           </div>
 
@@ -106,33 +105,84 @@ export default function About() {
       </section>
 
       <section className="px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="max-w-5xl mx-auto space-y-8">
-          <div className="space-y-3 text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-background/50">Our values</p>
-            <h2 className="text-3xl font-bold">Principles we return to</h2>
-            <p className="text-background/60 md:w-3/4 mx-auto">
-              A handful of phrases we expect every leader to recite, live, and teach.
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-3 mb-12"
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-background/50 text-center">Our values</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-center">Principles we return to</h2>
+            <p className="text-background/60 text-center max-w-2xl mx-auto">
+              Inspired by the Archdiocesan vision, we go out to witness, go deep in faith, and go together in mission.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-0">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="rounded-3xl border border-background/10 bg-white p-6 space-y-3"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative py-8 md:py-10"
               >
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-background/50">
-                  <span className="h-1.5 w-1.5 rounded-full bg-marian-indigo" />
-                  {value.title}
+                {index < values.length - 1 && (
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-background/10 to-transparent" />
+                )}
+                <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start md:items-center gap-6 md:gap-12`}>
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-background/5 flex items-center justify-center border border-background/10">
+                      <span className="text-2xl font-bold text-background">{index + 1}</span>
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <h3 className="text-xl md:text-2xl font-bold text-background">{value.title}</h3>
+                    <p className="text-background/70 leading-relaxed">{value.body}</p>
+                  </div>
                 </div>
-                <p className="text-background/70 leading-relaxed">{value.body}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Quote Section */}
+      <section className="px-4 sm:px-6 lg:px-8 pb-24">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="text-center space-y-8 py-12 md:py-16">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-px w-12 bg-background/20"></div>
+                <svg className="w-6 h-6 text-background/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+                <div className="h-px w-12 bg-background/20"></div>
+              </div>
+              
+              <blockquote className="text-2xl md:text-4xl font-bold text-background leading-relaxed italic max-w-3xl mx-auto">
+                "Dear young people, let yourselves be taken over by the light of Christ, and spread that light wherever you are."
+              </blockquote>
+              
+              <div className="pt-6">
+                <p className="text-sm uppercase tracking-[0.2em] text-background/50 font-medium mb-1">
+                  St. John Paul II
+                </p>
+                <p className="text-xs text-background/40">
+                  Inspiration
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
